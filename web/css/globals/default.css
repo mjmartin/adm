@@ -197,3 +197,22 @@ input.flag:checked + label {
 div.answer input {
 	display:none;
 }
+div.start-quiz {
+  display: inline;
+  clear: both;
+  border: solid thick black;
+  padding: 5px;
+  margin: 30px;
+}
+div.resume-quiz {
+  display: inline-block;
+  clear: both;
+  border: solid thick black;
+  padding: 5px;
+  margin: 30px;
+}
+
+div.resume-quiz input {
+  clear:both;
+  display: block;
+}
