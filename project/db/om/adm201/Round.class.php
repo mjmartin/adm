@@ -25,6 +25,18 @@ class Round extends \project\db\om\adm201\base\BaseRound {
     }
   }
   
+  public function completeRound() {
+    $this->markRound();
+    $this->setRoundEnd(date('Y-m-d H:i:s'));
+    $this->save();
+  }
+  
+  protected function markRound() {
+    $roundResults = \nano\core\db\ORM::getInstance()->getTable('Mark', 'adm201')->markRound($this);
+    $this->setCorrect($roundResults->getCorrect());
+    $this->setWrong($roundResults->getWrong());
+  }
+  
   /**
    * Returns $numQuestions random question ids
    * @param int $numQuestions

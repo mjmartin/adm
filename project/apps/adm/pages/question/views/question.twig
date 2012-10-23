@@ -20,7 +20,11 @@
               <div class="commands">
                 <input type="checkbox" class="flag" name="flag" id="flag"/><label for="flag" class="flag">Flag</label>
                 <div class="clearfix"></div>
+                {% if nextButton %}
+                <input type="submit" class="submit" id="submit" name="submit" value="Next"/>
+                {% else %}
                 <input type="submit" class="submit" id="submit" name="submit" value="Submit"/>
+                {% endif %}
               </div>
             </form>
             {% if showTip %}

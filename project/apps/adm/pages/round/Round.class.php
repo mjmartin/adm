@@ -18,7 +18,13 @@ class Round extends \project\apps\adm\templates\PageTemplate {
    * @param \nano\core\routing\Routing $routing Routing
    */
   public function execute(\nano\core\routing\Routing $routing) {
-    var_dump($_GET);
+    
+    $this->roundId = $routing->getRequest()->getParameter('roundid');
+    if (!is_numeric($this->roundId))
+    {
+      throw new \Exception('expecting a number');
+    }
+    $this->round = \nano\core\db\ORM::getInstance()->getTable('Round', 'adm201')->retrieveByPk($this->roundId);
     return 'project/apps/adm/pages/round/views/round.twig';
   }
 }

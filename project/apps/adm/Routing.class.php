@@ -45,14 +45,15 @@ class Routing {
     'round' => array
       (
       'url' => '/r/:roundid/:questionid',
-      'class' => 'project\apps\adm\pages\round\Round',
+      'class' => 'project\apps\adm\pages\question\Question',
       'requirements' => array(
         'roundid' => '\d+',
+        'questionid' => '\d+'
         )
       ),
-    'round_index' => array
+    'round_complete' => array
       (
-      'url' => '/r/:roundid',
+      'url' => '/r/:roundid/complete',
       'class' => 'project\apps\adm\pages\round\Round',
       'requirements' => array(
         'roundid' => '\d+',
