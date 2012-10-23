@@ -47,7 +47,7 @@ class Map {
 		'Answers' => array('id' => 'id','Question' => 'Question','answer' => 'answer','is_correct' => 'is_correct','match_order' => 'match_order','alpha' => 'alpha'),
 		'Auths' => array('id' => 'id','type' => 'type','uid' => 'uid','fuid' => 'fuid','perams' => 'perams'),
 		'Languages' => array('code' => 'code','key' => 'key','value' => 'value'),
-		'Marks' => array('id' => 'id','Round' => 'Round','Question' => 'Question','answer_list' => 'answer_list'),
+		'Marks' => array('id' => 'id','Round' => 'Round','Question' => 'Question','answer_list' => 'answer_list','is_correct' => 'is_correct'),
 		'Questions' => array('id' => 'id','question' => 'question','max_answers' => 'max_answers','tip' => 'tip','match_type' => 'match_type','Sampleset' => 'Sampleset'),
 		'Rounds' => array('id' => 'id','round_start' => 'round_start','round_end' => 'round_end','correct' => 'correct','wrong' => 'wrong'),
 		'Sampleset' => array('id' => 'id','notes' => 'notes','url' => 'url','date_collected' => 'date_collected'),

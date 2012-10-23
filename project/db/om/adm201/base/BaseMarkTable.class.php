@@ -84,13 +84,27 @@ class BaseMarkTable extends \nano\core\db\om\BaseTable {
 			'set_function' => 'setAnswerList',
 			'validation_function' => 'validateAnswerList',
 			'get_function' => 'getAnswerList',
+		),
+		'is_correct' => array(
+			'mysql_type' => 'tinyint(1)',
+			'mysql_is_null' => 'YES',
+			'mysql_key' => '',
+			'mysql_default' => '',
+			'mysql_extra' => '',
+			'is_foreign_reference' => false,
+			'use_model' => 'Mark',
+			'use_database' => 'adm201',
+			'set_function' => 'setIsCorrect',
+			'validation_function' => 'validateIsCorrect',
+			'get_function' => 'getIsCorrect',
 		)
 	);
 	protected $newFieldNameMap = array(
 		'id' => 'id',
 		'Round' => 'Round',
 		'Question' => 'Question',
-		'answer_list' => 'answer_list'
+		'answer_list' => 'answer_list',
+		'is_correct' => 'is_correct'
 	);
 
 	public function retrieveByPk($id) {
