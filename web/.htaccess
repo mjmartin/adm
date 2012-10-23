@@ -1,0 +1,15 @@
+Options +FollowSymLinks
+Options +Indexes
+<IfModule mod_headers.c>
+	Header set PHPFramework "NanoPHP Version 2"
+</IfModule>
+
+RewriteEngine On
+
+RewriteRule ^favicon.ico$ favicon.ico [L]
+RewriteRule	^(css|js|img|assets)/(.*)$ $1/$2 [L]
+
+# ####### Dev ##########
+RewriteCond %{HTTP_HOST} ^adm201\.dev$
+RewriteRule	.* index.php [L,E=PROJECT_APP:adm,E=PROJECT_ENV:Dev]
+# #######################

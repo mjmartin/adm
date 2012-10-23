@@ -1,0 +1,91 @@
+QuickIntroduction :-
+
+NanoPHP has been designed for rapid development of PHP based projects. It utilises most of the new features 5.3.2+ has to offer.
+
+Requirements :-
+
+MySQL 5.1 +
+
+Apache 2
+	- mod_rewrite enabled
+	- mod_headers enabled (optional)
+
+PHP 5.3.2 +
+	- MySqli Extension (PHP 5 Mysql)
+	- xdebug (optional - recommended)
+	- memcached (optional - recommended)
+
+Installation :-
+
+1.) Run the SQL code in sql/nanophp_structure.sql
+
+2.) Edit site/config/environments/Dev.class.php
+	
+----------------------------------------------------------------------------------------------------------------------------
+
+'databases' => array (
+	'default' => array(
+		'mode' => \site\core\db\core\Database::DB_MODE_SINGLE, //.only mode currently supported
+		'name' => 'nanophp', //.database name
+		'servers' => array(
+			array(
+				'host' => 'localhost', //.database hostname/ip
+				'port' => '3306', //.database port
+				'user' => 'root', //.database username
+				'pass' => 'test' //.database password
+			)
+		)
+	)
+),
+
+----------------------------------------------------------------------------------------------------------------------------
+
+3.) Check your details are correct to access the MySQL database.
+
+4.) In web/.htaccess towards the bottom there should be two access rules:
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# ####### Dev ##########
+RewriteCond %{HTTP_HOST} ^www\.example\.dev$
+RewriteRule	.* index.php [L,E=PROJECT_APP:front_end,E=PROJECT_ENV:Dev]
+# #######################
+
+# ####### Dev ##########
+RewriteCond %{HTTP_HOST} ^admin\.example\.dev$
+RewriteRule	.* index.php [L,E=PROJECT_APP:back_end,E=PROJECT_ENV:Dev]
+# #######################
+
+----------------------------------------------------------------------------------------------------------------------------
+
+This tells NanoPHP, that when accessing 'www.example.dev', load the 'front_end' project and use the environment 'Dev'
+
+To access this project, a new rule will have to be added to your Apache Virtual Hosts (/etc/apache2):
+
+----------------------------------------------------------------------------------------------------------------------------
+
+<VirtualHost *:80>
+        ServerName example.dev
+        ServerAlias *.example.dev
+        DocumentRoot /var/www/servers/nanophp-v2
+
+        RewriteEngine On
+</VirtualHost>
+
+----------------------------------------------------------------------------------------------------------------------------
+
+In it's most basic form, the Virtual Host Rule should look something like the above. (Remember to restart Apache - /etc/init.d/apache2 restart)
+
+5.) Now generate your first project by running:
+
+~> ./cli generate:NewProject
+
+Type 'front_end'. This will create a project called 'front_end' in site/projects
+
+6.) You can update your database models by running:
+
+~> ./cli generate:DatabaseModels --environment=Dev --connection=default --database=nanophp
+
+7.) Visit www.example.dev (you may need to add this to your hosts file) and you should see everything is ok and running.
+
+8.) A basic version of the Admin panel will be available at admin.example.dev (username: chris@nanophp.org, password: testing).

@@ -1,0 +1,27 @@
+{% extends "project/apps/adm/layouts/layout.twig" %}
+
+{% block content_container %}
+	<div class="content-container">
+          <script>
+            var maxAnswers = {{ question.maxAnswers }}
+            </script>
+            <div class='question'>
+              <div class="max-answers">Max Answers: {{ question.maxAnswers }}</div>
+              <div class='question-id'>Question ID: {{ question.id }} <span class="match-type">Match Type: {{ question.matchType }}</span></div>
+              <h2>Question</h2>
+              <div class="clearfix"></div>
+              {{ question.question }}
+            </div>
+            <form method="POST" action="template.html">
+              <div class='answer-container'>
+                <h2>Answers</h2>
+                {{ answers }}
+              </div>
+              <div class="commands">
+                <input type="checkbox" class="flag" name="flag" id="flag"/><label for="flag" class="flag">Flag</label>
+                <div class="clearfix"></div>
+                <input type="submit" class="submit" id="submit" name="submit" value="Submit"/>
+              </div>
+            </form>
+	</div>
+{% endblock content_container %}
