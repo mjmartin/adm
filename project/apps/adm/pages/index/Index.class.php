@@ -36,7 +36,11 @@ class Index extends \project\apps\adm\templates\PageTemplate {
   }
   
   protected function newQuiz(\nano\core\routing\Routing $routing) {
-    
+    $round = new \project\db\om\adm201\Round();
+    $round->setCreatedAt(date('Y-m-d H:i:s'));
+    $round->save();
+    $chosen = $round->chooseQuestions();
+    $round->makeUnmarkedQuestions($chosen);
   }
   
   protected function resumeQuiz(\nano\core\routing\Routing $routing) {

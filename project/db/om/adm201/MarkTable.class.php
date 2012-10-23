@@ -13,4 +13,6 @@ namespace project\db\om\adm201;
  */
 class MarkTable extends \project\db\om\adm201\base\BaseMarkTable {
 
+  
+  
 }

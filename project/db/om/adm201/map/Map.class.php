@@ -49,7 +49,7 @@ class Map {
 		'Languages' => array('code' => 'code','key' => 'key','value' => 'value'),
 		'Marks' => array('id' => 'id','Round' => 'Round','Question' => 'Question','answer_list' => 'answer_list','is_correct' => 'is_correct'),
 		'Questions' => array('id' => 'id','question' => 'question','max_answers' => 'max_answers','tip' => 'tip','match_type' => 'match_type','Sampleset' => 'Sampleset'),
-		'Rounds' => array('id' => 'id','round_start' => 'round_start','round_end' => 'round_end','correct' => 'correct','wrong' => 'wrong'),
+		'Rounds' => array('id' => 'id','round_start' => 'round_start','round_end' => 'round_end','correct' => 'correct','wrong' => 'wrong','created_at' => 'created_at'),
 		'Sampleset' => array('id' => 'id','notes' => 'notes','url' => 'url','date_collected' => 'date_collected'),
 		'Sessions' => array('id' => 'id','User' => 'User','token' => 'token','ip' => 'ip','created' => 'created'),
 		'Users' => array('id' => 'id','language' => 'language','email' => 'email','password' => 'password','is_active' => 'is_active','is_admin' => 'is_admin','is_super_admin' => 'is_super_admin','created_at' => 'created_at','updated_at' => 'updated_at')

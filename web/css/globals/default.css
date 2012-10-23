@@ -203,6 +203,7 @@ div.start-quiz {
   border: solid thick black;
   padding: 5px;
   margin: 30px;
+  background-color: white;
 }
 div.resume-quiz {
   display: inline-block;
@@ -210,6 +211,7 @@ div.resume-quiz {
   border: solid thick black;
   padding: 5px;
   margin: 30px;
+  background-color: white;
 }
 
 div.resume-quiz input {
