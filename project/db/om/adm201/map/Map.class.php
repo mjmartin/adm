@@ -26,7 +26,7 @@ class Map {
 		'Auths' => 'Auth',
 		'Languages' => 'Language',
 		'Questions' => 'Question',
-		'Samplesets' => 'Sampleset',
+		'Sampleset' => 'Sampleset',
 		'Sessions' => 'Session',
 		'Users' => 'User'
 	);
@@ -35,7 +35,7 @@ class Map {
 		'Auth' => 'Auths',
 		'Language' => 'Languages',
 		'Question' => 'Questions',
-		'Sampleset' => 'Samplesets',
+		'Sampleset' => 'Sampleset',
 		'Session' => 'Sessions',
 		'User' => 'Users'
 	);
@@ -44,7 +44,7 @@ class Map {
 		'Auths' => array('id' => 'id','type' => 'type','uid' => 'uid','fuid' => 'fuid','perams' => 'perams'),
 		'Languages' => array('code' => 'code','key' => 'key','value' => 'value'),
 		'Questions' => array('id' => 'id','question' => 'question','max_answers' => 'max_answers','tip' => 'tip','match_type' => 'match_type','Sampleset' => 'Sampleset'),
-		'Samplesets' => array('id' => 'id','notes' => 'notes','url' => 'url','date_collected' => 'date_collected'),
+		'Sampleset' => array('id' => 'id','notes' => 'notes','url' => 'url','date_collected' => 'date_collected'),
 		'Sessions' => array('id' => 'id','User' => 'User','token' => 'token','ip' => 'ip','created' => 'created'),
 		'Users' => array('id' => 'id','language' => 'language','email' => 'email','password' => 'password','is_active' => 'is_active','is_admin' => 'is_admin','is_super_admin' => 'is_super_admin','created_at' => 'created_at','updated_at' => 'updated_at')
 	);

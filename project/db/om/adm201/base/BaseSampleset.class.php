@@ -31,7 +31,7 @@ class BaseSampleset extends \nano\core\db\om\Base {
 	protected $primaryKey = array('id');
 	protected $dbConfig = 'default';
 	protected $dbName = 'adm201';
-	protected $tableName = 'Samplesets';
+	protected $tableName = 'Sampleset';
 	protected $fields = array(
 		'id' => array(
 			'mysql_type' => 'int(11) unsigned',

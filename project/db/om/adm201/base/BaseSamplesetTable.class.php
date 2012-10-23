@@ -31,7 +31,7 @@ class BaseSamplesetTable extends \nano\core\db\om\BaseTable {
 	protected $primaryKey = array('id');
 	protected $dbConfig = 'default';
 	protected $dbName = 'adm201';
-	protected $tableName = 'Samplesets';
+	protected $tableName = 'Sampleset';
 	protected $fields = array(
 		'id' => array(
 			'mysql_type' => 'int(11) unsigned',
@@ -95,7 +95,7 @@ class BaseSamplesetTable extends \nano\core\db\om\BaseTable {
 
 	public function retrieveByPk($id) {
 		$query = new \nano\core\db\core\SelectQuery();
-		$query->from('Samplesets')->where('`Samplesets`.`id` = "'.addslashes($id).'" LIMIT 1');
+		$query->from('Sampleset')->where('`Sampleset`.`id` = "'.addslashes($id).'" LIMIT 1');
 		$results = $this->doSelect($query);
 		return isset($results[0]['Sampleset'])? $results[0]['Sampleset'] : null;
 	}
