@@ -218,3 +218,11 @@ div.resume-quiz input {
   clear:both;
   display: block;
 }
+div.round-progress {
+    border: solid thick black;
+  padding: 5px;
+  margin: 30px;
+  background-color: white;
+  display:inline-block;
+  float:right;
+}

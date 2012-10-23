@@ -110,6 +110,19 @@ class BaseRoundTable extends \nano\core\db\om\BaseTable {
 			'set_function' => 'setCreatedAt',
 			'validation_function' => 'validateCreatedAt',
 			'get_function' => 'getCreatedAt',
+		),
+		'unanswered' => array(
+			'mysql_type' => 'int(11)',
+			'mysql_is_null' => 'YES',
+			'mysql_key' => '',
+			'mysql_default' => '0',
+			'mysql_extra' => '',
+			'is_foreign_reference' => false,
+			'use_model' => 'Round',
+			'use_database' => 'adm201',
+			'set_function' => 'setUnanswered',
+			'validation_function' => 'validateUnanswered',
+			'get_function' => 'getUnanswered',
 		)
 	);
 	protected $newFieldNameMap = array(
@@ -118,7 +131,8 @@ class BaseRoundTable extends \nano\core\db\om\BaseTable {
 		'round_end' => 'round_end',
 		'correct' => 'correct',
 		'wrong' => 'wrong',
-		'created_at' => 'created_at'
+		'created_at' => 'created_at',
+		'unanswered' => 'unanswered'
 	);
 
 	public function retrieveByPk($id) {

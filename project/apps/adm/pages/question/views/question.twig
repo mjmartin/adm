@@ -5,6 +5,7 @@
           <script>
             var maxAnswers = {{ question.maxAnswers }}
             </script>
+            {{ roundProgress }}
             <div class='question'>
               <div class="max-answers">Max Answers: {{ question.maxAnswers }}</div>
               <div class='question-id'>Question ID: {{ question.id }} <span class="match-type">Match Type: {{ question.matchType }}</span></div>

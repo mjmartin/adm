@@ -24,6 +24,9 @@ class Question extends \project\apps\adm\templates\PageTemplate {
     $this->roundId = $routing->getRequest()->getParameter('roundid');
     $mark = null;
     if ($this->roundId) {
+      if (!is_numeric($this->roundId)) {
+        throw new \Exception('cannot find round');
+      }
       // we're in a round, actually check if question is part of a round...
       // replace questionId with round questionId
       $this->markId = $this->questionId;
@@ -32,6 +35,10 @@ class Question extends \project\apps\adm\templates\PageTemplate {
         throw new \Exception('that question is not in this round');
       }
       $this->questionId = $mark->getQuestion()->getId();
+      $round = \nano\core\db\ORM::getInstance()->getTable('Round', 'adm201')->retrieveByPk($this->roundId);
+      $roundProgressWidget = new \project\apps\adm\widgets\mark\Mark();
+      $roundProgressWidget->round = $round;
+      $this->roundProgress = $roundProgressWidget->getRenderedWidget();
     }
     $this->headerWidget->setTitle('Question: ' . $this->questionId);
     $this->question = \nano\core\db\ORM::getInstance()->getTable('Question', 'adm201')->retrieveByPk($this->questionId);

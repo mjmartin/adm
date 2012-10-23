@@ -110,6 +110,19 @@ class BaseRound extends \nano\core\db\om\Base {
 			'set_function' => 'setCreatedAt',
 			'validation_function' => 'validateCreatedAt',
 			'get_function' => 'getCreatedAt',
+		),
+		'unanswered' => array(
+			'mysql_type' => 'int(11)',
+			'mysql_is_null' => 'YES',
+			'mysql_key' => '',
+			'mysql_default' => '0',
+			'mysql_extra' => '',
+			'is_foreign_reference' => false,
+			'use_model' => 'Round',
+			'use_database' => 'adm201',
+			'set_function' => 'setUnanswered',
+			'validation_function' => 'validateUnanswered',
+			'get_function' => 'getUnanswered',
 		)
 	);
 	protected $newFieldNameMap = array(
@@ -118,7 +131,8 @@ class BaseRound extends \nano\core\db\om\Base {
 		'round_end' => 'round_end',
 		'correct' => 'correct',
 		'wrong' => 'wrong',
-		'created_at' => 'created_at'
+		'created_at' => 'created_at',
+		'unanswered' => 'unanswered'
 	);
 	public function setId($value){
 		if(\project\db\om\adm201\Round::validateId($value)){
@@ -162,6 +176,13 @@ class BaseRound extends \nano\core\db\om\Base {
 			throw new \nano\core\exception\ValidationException('Validation of column `created_at` failed');
 		}
 	}
+	public function setUnanswered($value){
+		if(\project\db\om\adm201\Round::validateUnanswered($value)){
+			$this->unanswered = $value;
+		} else {
+			throw new \nano\core\exception\ValidationException('Validation of column `unanswered` failed');
+		}
+	}
 	public function getId(){
 		return $this->id;
 	}
@@ -180,6 +201,9 @@ class BaseRound extends \nano\core\db\om\Base {
 	public function getCreatedAt(){
 		return $this->created_at;
 	}
+	public function getUnanswered(){
+		return $this->unanswered;
+	}
 	public static function validateId($value){
 		return true;
 	}
@@ -196,6 +220,9 @@ class BaseRound extends \nano\core\db\om\Base {
 		return true;
 	}
 	public static function validateCreatedAt($value){
+		return true;
+	}
+	public static function validateUnanswered($value){
 		return true;
 	}
 	

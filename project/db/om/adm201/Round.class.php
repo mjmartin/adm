@@ -31,7 +31,7 @@ class Round extends \project\db\om\adm201\base\BaseRound {
     $this->save();
   }
   
-  protected function markRound() {
+  public function markRound() {
     $roundResults = \nano\core\db\ORM::getInstance()->getTable('Mark', 'adm201')->markRound($this);
     $this->setCorrect($roundResults->getCorrect());
     $this->setWrong($roundResults->getWrong());

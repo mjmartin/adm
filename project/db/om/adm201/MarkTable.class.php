@@ -25,9 +25,19 @@ class MarkTable extends \project\db\om\adm201\base\BaseMarkTable {
     $results = $this->doSelect($query);
     $correct = count($results);
     $round->setCorrect($correct);
-    $wrong = $questionsInRound - $correct;
+    $unansweredQuestions = (int)$this->countUnansweredQuestionsInRound($round->getId());
+    $round->setUnanswered($unansweredQuestions);
+    $wrong = $questionsInRound - $correct - $unansweredQuestions;
     $round->setWrong($wrong);
     return $round;
+  }
+  
+  public function countUnansweredQuestionsInRound($roundId) {
+    if (!is_numeric($roundId)) {
+      throw new \Exception('roundid needs to be a number');
+    }
+    $result = $this->doRawSelect('SELECT count(id) as question_count FROM `Marks` WHERE is_correct IS NULL AND Round='.$roundId);
+    return $result[0]['question_count'];
   }
   
   public function countQuestionsInRound($roundId) {
