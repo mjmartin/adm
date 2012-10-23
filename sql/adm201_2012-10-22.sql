@@ -29,7 +29,7 @@ CREATE TABLE `Answers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `Question` int(11) DEFAULT NULL,
   `answer` mediumtext,
-  `is_correct` bit(1) DEFAULT NULL,
+  `is_correct` tinyint(1) DEFAULT NULL,
   `match_order` int(11) DEFAULT NULL,
   `alpha` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -638,7 +638,7 @@ CREATE TABLE `Questions` (
   `question` mediumtext,
   `max_answers` int(11) DEFAULT NULL,
   `tip` mediumtext,
-  `match_type` bit(1) DEFAULT NULL,
+  `match_type` tinyint(1) DEFAULT NULL,
   `Sampleset` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Sampleset` (`Sampleset`)

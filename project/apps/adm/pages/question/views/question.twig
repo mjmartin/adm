@@ -10,9 +10,9 @@
               <div class='question-id'>Question ID: {{ question.id }} <span class="match-type">Match Type: {{ question.matchType }}</span></div>
               <h2>Question</h2>
               <div class="clearfix"></div>
-              {{ question.question }}
+              {{ questionText }}
             </div>
-            <form method="POST" action="template.html">
+            <form method="POST" id="answer-form">
               <div class='answer-container'>
                 <h2>Answers</h2>
                 {{ answers }}
@@ -23,5 +23,12 @@
                 <input type="submit" class="submit" id="submit" name="submit" value="Submit"/>
               </div>
             </form>
+            {% if showTip %}
+            <div class="tip">
+              <h2>Tip</h2>
+              {{ tipText }}
+            </div>
+            {% endif %}
+            
 	</div>
 {% endblock content_container %}
