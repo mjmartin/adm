@@ -16,7 +16,7 @@ class Dev {
 		'i18n_marker' => false, /* If true, {{ double braces }} will be placed around any text returned by the i18n() function. */
 		
 		/* Log Settings */
-		'logging_bar' => true, /* Show the logging bar at the top of the page for development purposes. */
+		'logging_bar' => false, /* Show the logging bar at the top of the page for development purposes. */
 		'logging_priority' => \nano\core\log\Log::PRIORITY_LEVEL_LOGFILE, /* Default priority level for logging errors. Can be changed in individual exception classes for added control */
 		'logging_send_to' => array(
 			/* Errors with priority PRIORITY_LEVEL_EMAIL will be sent to all addresses in this array. */
@@ -28,20 +28,20 @@ class Dev {
 			/* 'default' database configuration must exist; others may be added below. */
 			'default' => array(
 				'mode' => \nano\core\db\core\Database::DB_MODE_SINGLE, /* Database access mode. */
-				'name' => 'nanophp', /* MySQL database name. */
+				'name' => 'adm201', /* MySQL database name. */
 				'servers' => array(
 					array(
-						'host' => 'localhost', /* Database hostname/IP address. */
+						'host' => 'mvm1.gsft.net', /* Database hostname/IP address. */
 						'port' => '3306', /* Database port. UNIX sockets are not supported at this time. */
-						'user' => 'root', /* MySQL username. */
-						'pass' => 'test' /* MySQL password. */
+						'user' => 'mike', /* MySQL username. */
+						'pass' => 'mian45' /* MySQL password. */
 					)
 				)
 			)
 		),
 		
 		/* Memcache Settings */
-		'caching' => true, /* Set to TRUE to enable the cache. The PHP 'Memcached' extension, and memcached itself, must be installed. */
+		'caching' => false, /* Set to TRUE to enable the cache. The PHP 'Memcached' extension, and memcached itself, must be installed. */
 		'memcache_servers' => array(
 			/* Array of memcached servers in the form 'hostname' => 'port'. */
 			'default' => array(

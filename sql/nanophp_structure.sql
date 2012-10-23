@@ -1,10 +1,10 @@
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `nanophp`
+-- Database: `adm201`
 --
-CREATE DATABASE IF NOT EXISTS `nanophp` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `nanophp`;
+CREATE DATABASE IF NOT EXISTS `adm201` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `adm201`;
 
 -- --------------------------------------------------------
 
@@ -91,4 +91,4 @@ CREATE TABLE IF NOT EXISTS `Users` (
 --
 
 INSERT INTO `Users` (`id`, `language`, `email`, `password`, `is_active`, `is_admin`, `is_super_admin`, `created_at`, `updated_at`) VALUES
-(1, 'en_GB', 'chris@nanophp.org', 'testing', 1, 1, 1, '2010-12-07 11:57:43', '2010-12-07 11:57:43');
+(1, 'en_GB', 'm@mjm.im', 'test', 1, 1, 1, '2010-12-07 11:57:43', '2010-12-07 11:57:43');

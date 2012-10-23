@@ -92,3 +92,102 @@ textarea.form-textarea {
 .click-span {
 	cursor: pointer !important;
 }
+
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	background-color: #FFC;
+	font-size: small;
+}
+h2 { 
+	font-size: 12pt;
+        margin-left: 50px;
+}
+.question {
+	background-color: #FFF;
+	border: medium solid #F90;
+	margin: 20px;
+        padding-bottom:20px;
+        padding-left: 10px;
+        padding-top: 10px;
+        display:block;
+}
+.answer-container {
+	background-color: #FFF;
+	border: medium solid #F90;
+	margin: 20px;
+        padding-bottom:20px;
+}
+.max-answers {
+	display: inline;
+	float:right;
+        margin-top: 100px;
+        margin-right:50px;
+}
+.clearfix {
+	clear: both;
+	float:none;
+}
+question-id {
+	margin: 4px;
+	padding: 4px;
+	float: none;
+}
+div.answer {
+	clear: both;
+	background-color: #FFF;
+	border: medium solid;
+	display: block;
+	margin: 10px;
+}
+
+div.answer input:checked + label {
+	background-color: #6CF;
+}
+div.answer label {
+	display: block;
+	padding: 10px;
+}
+
+div.correct {
+	border: medium solid #6C0;
+}
+div.wrong {
+	border: medium solid #C33;
+}
+.match-type {
+	font-size: x-small;
+}
+label.flag {
+	font-size: xx-large;
+	border: solid thick yellow;
+	background-color: gold;
+	text-decoration:none;
+	color: black;
+	margin: 15px;
+}
+
+input.flag {
+	display:none;
+}
+
+input.flag:checked + label {
+	background-color: #993;
+	border-color:white;
+	color:white;
+}
+
+.flagged {
+	color: white;
+	background-color:#960;
+	border-color:#990;	
+}
+
+.submit {
+	font-size: xx-large;
+	border: ridge thick black;
+	background-color: #C66;
+	margin: 25px;
+}
+div.answer input {
+	display:none;
+}
