@@ -31,6 +31,12 @@
 .form-file {
 	font-size: 1.1em;
 }
+.tip {
+  border: 2px solid black;
+  background-color: white;
+  padding: 10px;
+  margin: 10px 10px 10px 10px;
+}
 
 textarea.form-textarea {
 	width: 800px;

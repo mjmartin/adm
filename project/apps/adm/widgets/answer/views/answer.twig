@@ -1,3 +1,7 @@
-<div class="answer" id="d-answer-{{answer.id}}">
-  <input type="{{ answerType }}" name="answer" value="{{answer.id}}" id="answer-{{answer.id}}"/><label for="answer-{{answer.id}}">{{ answer.answer }}</label>
+<div class="answer {{ wrong }} {{ correct }}" id="d-answer-{{answer.id}}">
+{% if answerType == 'checkbox' %}
+  <input type="checkbox" name="answer[]" {{checked}} value="{{answer.id}}" id="answer-{{answer.id}}"/><label for="answer-{{answer.id}}">{{ answerText }}</label>
+{% else %}
+  <input type="{{ answerType }}" name="answer" {{checked}} value="{{answer.id}}" id="answer-{{answer.id}}"/><label for="answer-{{answer.id}}">{{ answerText }}</label>
+{% endif %}
 </div>
