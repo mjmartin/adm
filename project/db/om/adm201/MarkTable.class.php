@@ -48,4 +48,12 @@ class MarkTable extends \project\db\om\adm201\base\BaseMarkTable {
     return $result[0]['question_count'];
   }
   
+  public function countFlaggedQuestionsInRound($roundId) {
+    if (!is_numeric($roundId)) {
+      throw new \Exception('roundid needs to be a number');
+    }
+    $result = $this->doRawSelect('SELECT count(id) as question_count FROM `Marks` WHERE is_flagged=1 AND Round='.$roundId);
+    return $result[0]['question_count'];
+  }
+  
 }

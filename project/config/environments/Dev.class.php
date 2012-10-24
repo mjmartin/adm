@@ -31,10 +31,10 @@ class Dev {
 				'name' => 'adm201', /* MySQL database name. */
 				'servers' => array(
 					array(
-						'host' => 'mvm1.gsft.net', /* Database hostname/IP address. */
+						'host' => 'localhost', /* Database hostname/IP address. */
 						'port' => '3306', /* Database port. UNIX sockets are not supported at this time. */
-						'user' => 'mike', /* MySQL username. */
-						'pass' => 'mian45' /* MySQL password. */
+						'user' => 'root', /* MySQL username. */
+						'pass' => 'test' /* MySQL password. */
 					)
 				)
 			)

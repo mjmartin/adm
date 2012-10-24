@@ -62,15 +62,20 @@ class Question extends \project\apps\adm\templates\PageTemplate {
 
     if ($request->isPost()) {
       if ($request->getPostParameter('submit') == 'Next') {
-        $nextRoundQuestionId = $this->questionId++;
+        $nextRoundQuestionId = $this->markId+1;
         $nextMark = \nano\core\db\ORM::getInstance()->getTable('Mark', 'adm201')->retrieveByPk($nextRoundQuestionId);
         if ($nextMark) {
           $routing->getResponse()->pageRedirect('/r/'.$this->roundId.'/'.$nextRoundQuestionId);
+          exit;
         } else {
           // completed the quiz!
           $round = \nano\core\db\ORM::getInstance()->getTable('Round', 'adm201')->retrieveByPk($this->roundId);
           if (!$round) {
             throw new \Exception('cannot find round');
+          }
+          if (\nano\core\db\ORM::getInstance()->getTable('Mark', 'adm201')->countFlaggedQuestionsInRound() > 0) {
+            // there are flagged questions remaining. Don't mark as complete, instead take them to flagged list.
+            
           }
           if (!$round->getRoundEnd()) {
             $round->completeRound();
@@ -78,13 +83,22 @@ class Question extends \project\apps\adm\templates\PageTemplate {
           $routing->getResponse()->pageRedirect('/r/'.$this->roundId.'/complete');
         }
       }
-      $this->showTip = true;
-      $this->tipText = nl2br($this->question->getTip());
+      if ($this->question->getTip()) {
+        $this->showTip = true;
+        $this->tipText = nl2br($this->question->getTip());
+      }
       if ($request->getPostParameter('flag') == 'on') {
         // flag this
+        $mark->setIsFlagged(true);
+        
+      } else {
+        $mark->setIsFlagged(false);
       }
+      $mark->save();
       $correctAnswers = array();
       $userAnswers = array();
+      $goodMarks = array();
+      $badMarks = array();
       foreach ($answers as $answer) {
         if ($answer->getIsCorrect() == 1) {
           $correctAnswers[] = $answer->getId();
@@ -95,8 +109,7 @@ class Question extends \project\apps\adm\templates\PageTemplate {
         if ($userAnswers === null) {
           $userAnswers = array();
         }
-        $goodMarks = array();
-        $badMarks = array();
+
         foreach ($userAnswers as $userAnswer) {
           if (in_array($userAnswer, $correctAnswers)) {
             $goodMarks[] = $userAnswer;

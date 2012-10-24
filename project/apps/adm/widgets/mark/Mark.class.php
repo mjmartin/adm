@@ -8,7 +8,7 @@ class Mark extends \project\apps\adm\templates\WidgetTemplate {
     $this->round->markRound();
     $roundStarted = new \DateTime($this->round->getRoundStart(), new \DateTimeZone('Europe/London'));
     $this->roundStarted = $roundStarted->format('j F Y H:i:s');
-    
+    $this->flagged = $this->round->getNumFlagged();
     return 'project/apps/adm/widgets/mark/views/mark.twig';
   }
 }

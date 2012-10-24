@@ -97,6 +97,19 @@ class BaseMarkTable extends \nano\core\db\om\BaseTable {
 			'set_function' => 'setIsCorrect',
 			'validation_function' => 'validateIsCorrect',
 			'get_function' => 'getIsCorrect',
+		),
+		'is_flagged' => array(
+			'mysql_type' => 'tinyint(1)',
+			'mysql_is_null' => 'NO',
+			'mysql_key' => '',
+			'mysql_default' => '0',
+			'mysql_extra' => '',
+			'is_foreign_reference' => false,
+			'use_model' => 'Mark',
+			'use_database' => 'adm201',
+			'set_function' => 'setIsFlagged',
+			'validation_function' => 'validateIsFlagged',
+			'get_function' => 'getIsFlagged',
 		)
 	);
 	protected $newFieldNameMap = array(
@@ -104,7 +117,8 @@ class BaseMarkTable extends \nano\core\db\om\BaseTable {
 		'Round' => 'Round',
 		'Question' => 'Question',
 		'answer_list' => 'answer_list',
-		'is_correct' => 'is_correct'
+		'is_correct' => 'is_correct',
+		'is_flagged' => 'is_flagged'
 	);
 
 	public function retrieveByPk($id) {

@@ -37,6 +37,10 @@ class Round extends \project\db\om\adm201\base\BaseRound {
     $this->setWrong($roundResults->getWrong());
   }
   
+  public function getNumFlagged() {
+    return \nano\core\db\ORM::getInstance()->getTable('Mark', 'adm201')->countFlaggedQuestionsInRound($this->getId());
+  }
+  
   /**
    * Returns $numQuestions random question ids
    * @param int $numQuestions
