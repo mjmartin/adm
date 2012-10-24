@@ -84,13 +84,27 @@ class BaseMark extends \nano\core\db\om\Base {
 			'set_function' => 'setAnswerList',
 			'validation_function' => 'validateAnswerList',
 			'get_function' => 'getAnswerList',
+		),
+		'is_correct' => array(
+			'mysql_type' => 'tinyint(1)',
+			'mysql_is_null' => 'YES',
+			'mysql_key' => '',
+			'mysql_default' => '',
+			'mysql_extra' => '',
+			'is_foreign_reference' => false,
+			'use_model' => 'Mark',
+			'use_database' => 'adm201',
+			'set_function' => 'setIsCorrect',
+			'validation_function' => 'validateIsCorrect',
+			'get_function' => 'getIsCorrect',
 		)
 	);
 	protected $newFieldNameMap = array(
 		'id' => 'id',
 		'Round' => 'Round',
 		'Question' => 'Question',
-		'answer_list' => 'answer_list'
+		'answer_list' => 'answer_list',
+		'is_correct' => 'is_correct'
 	);
 	public function setId($value){
 		if(\project\db\om\adm201\Mark::validateId($value)){
@@ -120,6 +134,13 @@ class BaseMark extends \nano\core\db\om\Base {
 			throw new \nano\core\exception\ValidationException('Validation of column `answer_list` failed');
 		}
 	}
+	public function setIsCorrect($value){
+		if(\project\db\om\adm201\Mark::validateIsCorrect($value)){
+			$this->is_correct = $value;
+		} else {
+			throw new \nano\core\exception\ValidationException('Validation of column `is_correct` failed');
+		}
+	}
 	public function getId(){
 		return $this->id;
 	}
@@ -132,6 +153,9 @@ class BaseMark extends \nano\core\db\om\Base {
 	public function getAnswerList(){
 		return $this->answer_list;
 	}
+	public function getIsCorrect(){
+		return $this->is_correct;
+	}
 	public static function validateId($value){
 		return true;
 	}
@@ -142,6 +166,9 @@ class BaseMark extends \nano\core\db\om\Base {
 		return true;
 	}
 	public static function validateAnswerList($value){
+		return true;
+	}
+	public static function validateIsCorrect($value){
 		return true;
 	}
 	

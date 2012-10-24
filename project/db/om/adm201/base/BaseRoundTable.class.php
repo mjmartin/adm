@@ -48,7 +48,7 @@ class BaseRoundTable extends \nano\core\db\om\BaseTable {
 		),
 		'round_start' => array(
 			'mysql_type' => 'datetime',
-			'mysql_is_null' => 'NO',
+			'mysql_is_null' => 'YES',
 			'mysql_key' => '',
 			'mysql_default' => '',
 			'mysql_extra' => '',
@@ -61,7 +61,7 @@ class BaseRoundTable extends \nano\core\db\om\BaseTable {
 		),
 		'round_end' => array(
 			'mysql_type' => 'datetime',
-			'mysql_is_null' => 'NO',
+			'mysql_is_null' => 'YES',
 			'mysql_key' => '',
 			'mysql_default' => '',
 			'mysql_extra' => '',
@@ -74,7 +74,7 @@ class BaseRoundTable extends \nano\core\db\om\BaseTable {
 		),
 		'correct' => array(
 			'mysql_type' => 'int(11)',
-			'mysql_is_null' => 'NO',
+			'mysql_is_null' => 'YES',
 			'mysql_key' => '',
 			'mysql_default' => '0',
 			'mysql_extra' => '',
@@ -87,7 +87,7 @@ class BaseRoundTable extends \nano\core\db\om\BaseTable {
 		),
 		'wrong' => array(
 			'mysql_type' => 'int(11)',
-			'mysql_is_null' => 'NO',
+			'mysql_is_null' => 'YES',
 			'mysql_key' => '',
 			'mysql_default' => '0',
 			'mysql_extra' => '',
@@ -97,6 +97,32 @@ class BaseRoundTable extends \nano\core\db\om\BaseTable {
 			'set_function' => 'setWrong',
 			'validation_function' => 'validateWrong',
 			'get_function' => 'getWrong',
+		),
+		'created_at' => array(
+			'mysql_type' => 'datetime',
+			'mysql_is_null' => 'NO',
+			'mysql_key' => '',
+			'mysql_default' => '',
+			'mysql_extra' => '',
+			'is_foreign_reference' => false,
+			'use_model' => 'Round',
+			'use_database' => 'adm201',
+			'set_function' => 'setCreatedAt',
+			'validation_function' => 'validateCreatedAt',
+			'get_function' => 'getCreatedAt',
+		),
+		'unanswered' => array(
+			'mysql_type' => 'int(11)',
+			'mysql_is_null' => 'YES',
+			'mysql_key' => '',
+			'mysql_default' => '0',
+			'mysql_extra' => '',
+			'is_foreign_reference' => false,
+			'use_model' => 'Round',
+			'use_database' => 'adm201',
+			'set_function' => 'setUnanswered',
+			'validation_function' => 'validateUnanswered',
+			'get_function' => 'getUnanswered',
 		)
 	);
 	protected $newFieldNameMap = array(
@@ -104,7 +130,9 @@ class BaseRoundTable extends \nano\core\db\om\BaseTable {
 		'round_start' => 'round_start',
 		'round_end' => 'round_end',
 		'correct' => 'correct',
-		'wrong' => 'wrong'
+		'wrong' => 'wrong',
+		'created_at' => 'created_at',
+		'unanswered' => 'unanswered'
 	);
 
 	public function retrieveByPk($id) {

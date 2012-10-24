@@ -3,7 +3,21 @@
 {% block content_container %}
 	<div class="content-container">
 		
-		Looks like everything is working!! :)
+		<h2>Welcome to Super Quiz</h2>
+                {{ message }}
+                <form method="POST">
+                  <div class="resume-quiz">
+                    <p>Enter your quiz number to continue your quiz / review your answers</p>
+                    <input type="text" name="quiz" id="quiz"/><label for="quiz">Resume Quiz</label>
+                    <input type="submit" value="Resume / Review Quiz"/>
+                  </div>
+                </form>
+                <form method="POST">
+                  <div class="start-quiz">
+                    <input type="hidden" name="quiz" value="newQuiz"/>
+                    <input type="submit" value="Start New Quiz"/>
+                  </div>
+                </form>
 		
 	</div>
 {% endblock content_container %}
