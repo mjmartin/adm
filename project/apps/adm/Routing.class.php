@@ -42,6 +42,15 @@ class Routing {
         'questionid' => '\d+',
       ),
     ),
+    'flagged' => array
+      (
+      'url' => '/r/:roundid/f/:markid',
+      'class' => 'project\apps\adm\pages\question\Question',
+      'requirements' => array(
+        'roundid' => '\d+',
+        'markid' => '\d+'
+        )
+      ),
     'round' => array
       (
       'url' => '/r/:roundid/:questionid',
